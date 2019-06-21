@@ -14,9 +14,8 @@ import {
 import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: ReactNative.createElement']);
 console.disableYellowBox = true;
-import { Provider } from 'react-redux';
 import store from '../store';
-import Nagivations from './routes/Nagivations';
+import Nagivations from './routes/Navigations';
 
 export default class App extends Component {
     render() {

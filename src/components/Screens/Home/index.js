@@ -4,16 +4,16 @@ import { StyleSheet, View, Text, ActivityIndicator,StatusBar } from 'react-nativ
 export default class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
+    }
+    static navigationOptions = {
+        header: null
     }
 
     render(){
+        console.log(this.props)
         return(
             <Fragment>
                 <View >
-
                 </View>
             </Fragment>
         );  
