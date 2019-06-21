@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, StatusBar } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export default class Cloud extends Component {
     constructor(props) {
@@ -13,9 +14,8 @@ export default class Cloud extends Component {
         return (
             <Fragment>
                 <View style={styles.mainWrapper}>
-                    <View style={{ width: 50, height: 50, backgroundColor: 'powderblue' }} />
-                    <View style={{ height: 50, backgroundColor: 'skyblue' }} />
-                    <View style={{ height: 100, backgroundColor: 'steelblue' }} />
+                    <Icon name="cloudo" size={45} />
+                    <Text>Cloud Analyzing Hair Structure…</Text>
                 </View>
             </Fragment>
         );
@@ -25,5 +25,13 @@ const styles = StyleSheet.create({
     mainWrapper: {
         flex: 1,
         backgroundColor: 'rgba(241, 189, 189, 1)',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    textStyle:{
+        fontFamily:"Montserrat-Regular",
+        textAlign: 'left',
+        fontSize: 13
     }
 });
