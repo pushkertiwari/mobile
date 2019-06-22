@@ -49,7 +49,7 @@ class Home extends Component {
     return (
       <Fragment>
         <View style={{ flex: 1, backgroundColor: "#F1BDBD" }}>
-          <Header title={"My Avana"} subText={"TM"} />
+          <Header title={"MyAvana"} subText={"TM"} />
           <View style={{ flex: 1 }}>
             <View style={{ marginLeft: 60, marginRight: 25 }}>
               <Text
