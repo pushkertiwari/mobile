@@ -13,6 +13,7 @@ YellowBox.ignoreWarnings(["Warning: ReactNative.createElement"]);
 console.disableYellowBox = true;
 import store from "../store";
 import Nagivations from "./routes/Navigations";
+console.reportErrorsAsExceptions = false;
 
 export default class App extends Component {
   render() {

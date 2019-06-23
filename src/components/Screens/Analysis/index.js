@@ -60,14 +60,15 @@ export default class Analysis extends Component {
                         </Text>
                         <Icon name="bar-graph" size={45} style={{ transform: [{ rotate: '90deg' }] }} />
                     </View>
-                    <View style={{ flex: 0.2, justifyContent: 'center', flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ flex: 0.2, justifyContent: 'center', flexDirection: 'row', alignItems: 'center',marginTop:50 }}>
                         <Image
                             source={{ uri: 'https://aboutreact.com/wp-content/uploads/2018/07/logo.png', }}
                             //borderRadius style will help us make the Round Shape Image
-                            style={{ width: 150, height: 150, borderRadius: 200 / 2,
+                            style={{ 
+                                width: 180, height: 180, borderRadius: 200 / 2,
                                 overflow: "hidden",
-    borderWidth: 3,
-    borderColor: "green" }}
+                                borderWidth: 3,
+                                borderColor: "#ccc" }}
                         />
                     </View>
                 </View>
