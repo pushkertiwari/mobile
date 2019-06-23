@@ -16,11 +16,14 @@ import Header from "../../../components/common/Header";
 export default class Work extends Component {
   constructor(props) {
     super(props);
+    this.openCamera = this.openCamera.bind(this);
   }
   static navigationOptions = {
     header: null
   };
-
+  openCamera(){
+    this.props.navigation.navigate('Camera');
+  }
   render() {
     return (
       <Fragment>
@@ -75,7 +78,7 @@ export default class Work extends Component {
             </View>
             <View style={{}}>
             <View style={styles.btnSignInContainer}>
-                <TouchableOpacity style={styles.btnSignIn}>
+                <TouchableOpacity style={styles.btnSignIn} onPress={this.openCamera}>
                   <Text style={styles.btnSignInText}>Ok, Got it!</Text>
                 </TouchableOpacity>
               </View>

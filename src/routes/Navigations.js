@@ -9,10 +9,12 @@ import Home from '../containers/homeContainer';
 import Cloud from '../containers/cloudContainer';
 import Work from '../containers/workContainer';
 import Camera from '../containers/cameraContainer';
+import Analysis from '../containers/analysisContainer';
 
 
 export default Nagivations = createAppContainer(
     createStackNavigator({ 
+        Analysis: { screen:Analysis},
         Home: { screen: Home },
         Camera: {screen:Camera},
         Work: { screen:Work},

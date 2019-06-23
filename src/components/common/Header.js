@@ -7,6 +7,7 @@ import {
 /** 
 @param props object 
 @param title  String Title of header
+@param secondTitle String second substring of header
 @param subText String
 @param drawer Boolean Set visibility of drawer icon
  */
@@ -28,13 +29,19 @@ const Header = props => (
     <View style={{ flexDirection: "row", justifyContent: "center", flex: 1 }}>
       <Text
         style={{
-          fontFamily: "Montserrat-bold",
+          fontFamily: "Montserrat-Regular",
           fontSize: 19,
           color: "#7B5151",
           margin: 5
         }}
       >
         {props.title.toUpperCase()}
+        <Text  style={{
+          fontFamily: "Montserrat-bold",
+          fontSize: 19,
+          color: "#7B5151",
+          margin: 5
+        }}>{props.secondTitle}</Text>
       </Text>
       <Text
         style={{

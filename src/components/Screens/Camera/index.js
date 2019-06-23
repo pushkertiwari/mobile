@@ -1,34 +1,40 @@
 import React, { Component, Fragment } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image,Alert, TouchableOpacity, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { RNCamera } from 'react-native-camera';
 
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 export default class Camera extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            backgroundColor: '#2756A9',
-            path: null,
-            imagePath: null,
-            isLoading: false,
-            flash: false
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      backgroundColor: '#2756A9',
+      path: null,
+      imagePath: null,
+      isLoading: false,
+      flash: false
     }
-    static navigationOptions = {
-        header: null,
-        gesturesEnabled: false,
-        disabledBackGesture: false
-    }
-    takePicture = async() => {
+  }
+  static navigationOptions = {
+    header: null,
+    gesturesEnabled: false,
+    disabledBackGesture: false
+  }
+  takePicture = async () => {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      console.log(data.uri);
+      // console.log(data.uri);
+      this.props.navigation.navigate('Cloud');
     }
   };
+  componentDidMount() {
+    console.log(height);
+  }
   render() {
     return (
-        <View style={styles.container}>
+      <View style={styles.container}>
         <RNCamera
           ref={ref => {
             this.camera = ref;
@@ -53,48 +59,56 @@ export default class Camera extends Component {
           }}
         />
         <View style={styles.maskOutter}>
-        <Icon name="rightcircleo" size={45} />
+          <Icon name="menuunfold" size={45} />
         </View>
-         
-        {/* <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-          <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
-            <Text style={{ fontSize: 14 }}> SNAP </Text>
+        <View style={{
+          margin: 5,
+          position: "absolute",
+          height: 50,
+          // backgroundColor: '#FF9800',
+          // alignItems: 'flex-end',
+          // justifyContent: 'space-between',
+          bottom: 20, 
+          right: width/2.5
+        }}>
+          <TouchableOpacity onPress={this.takePicture.bind(this)}>
+          <Icon name="circledowno" size={45} />
           </TouchableOpacity>
-        </View> */}
+        </View>
       </View>
     );
   }
 
 }
 
-  
+
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: 'black',
-    },
-    preview: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-    },
-    capture: {
-        flex: 0,
-        backgroundColor: '#fff',
-        borderRadius: 5,
-        padding: 15,
-        paddingHorizontal: 20,
-        alignSelf: 'center',
-        margin: 20,
-    },
-    maskOutter: {
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        marginTop:10,
-        paddingRight:5,
-        alignItems: 'flex-end',
-        justifyContent: 'space-between',
-    }
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'black',
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    padding: 15,
+    paddingHorizontal: 20,
+    alignSelf: 'center',
+    margin: 20,
+  },
+  maskOutter: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    marginTop: 10,
+    paddingRight: 5,
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+  }
 });

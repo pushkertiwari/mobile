@@ -41,20 +41,20 @@ const PacMan = () => {
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.openCamera = this.openCamera.bind(this);
+    this.howThisWorks = this.howThisWorks.bind(this);
   }
   static navigationOptions = {
     header: null
   };
-  openCamera(){
-    this.props.navigation.navigate('Camera');
+  howThisWorks(){
+    this.props.navigation.navigate('Work');
   }
 
   render() {
     return (
       <Fragment>
         <View style={{ flex: 1, backgroundColor: "#F1BDBD" }}>
-          <Header title={"MyAvana"} subText={"TM"} />
+          <Header title={"My"} secondTitle={"AVANA"} subText={"TM"} />
           <View style={{ flex: 1 }}>
             <View style={{ marginLeft: 60, marginRight: 25 }}>
               <Text
@@ -96,7 +96,7 @@ class Home extends Component {
               <TextInput  placeHolderText={"Email"}/>
               <TextInput placeHolderText={"Phone (Optional)"}/>
               <TextInput placeHolderText={"Access Code"}/>
-              <Button name={"Continue"}  onPress={this.openCamera}/>
+              <Button name={"Continue"}  onPress={this.howThisWorks}/>
             </View>
           </View>
         </View>
