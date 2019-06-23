@@ -39,8 +39,8 @@ const Header = props => (
       <Text
         style={{
           fontSize: 10,
-          borderWidth: 1,
-          borderRadius: 100,
+          // borderWidth: 1,
+          // borderRadius: 100,
           height: 18,
           width: 18,
           textAlign: "center",

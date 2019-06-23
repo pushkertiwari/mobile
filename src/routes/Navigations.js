@@ -8,12 +8,14 @@ import 'react-native-gesture-handler';
 import Home from '../containers/homeContainer';
 import Cloud from '../containers/cloudContainer';
 import Work from '../containers/workContainer';
+import Camera from '../containers/cameraContainer';
 
 
 export default Nagivations = createAppContainer(
     createStackNavigator({ 
-        Work: { screen:Work},
         Home: { screen: Home },
+        Camera: {screen:Camera},
+        Work: { screen:Work},
         Cloud: { screen: Cloud },
        
     })

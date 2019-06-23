@@ -5,6 +5,7 @@ import {
   View,
   Text,
   ActivityIndicator,
+  Alert,
   StatusBar,
   Dimensions,
   Animated
@@ -40,10 +41,14 @@ const PacMan = () => {
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.openCamera = this.openCamera.bind(this);
   }
   static navigationOptions = {
     header: null
   };
+  openCamera(){
+    this.props.navigation.navigate('Camera');
+  }
 
   render() {
     return (
@@ -91,7 +96,7 @@ class Home extends Component {
               <TextInput  placeHolderText={"Email"}/>
               <TextInput placeHolderText={"Phone (Optional)"}/>
               <TextInput placeHolderText={"Access Code"}/>
-              <Button name={"Continue"} />
+              <Button name={"Continue"}  onPress={this.openCamera}/>
             </View>
           </View>
         </View>
