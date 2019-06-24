@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { StyleSheet, View, Text, Image,Alert, TouchableOpacity, Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
+import { StyleSheet, View, Image,Alert, TouchableOpacity, Dimensions } from 'react-native';
+import { moderateScale } from "../../../helpers/ResponsiveFonts";
 import { RNCamera } from 'react-native-camera';
 
 const height = Dimensions.get('window').height;
@@ -59,20 +59,17 @@ export default class Camera extends Component {
           }}
         />
         <View style={styles.maskOutter}>
-          <Icon name="menuunfold" size={45} />
+          <Image  source={require('../../../assets/images/barIcon.png')} />
         </View>
         <View style={{
-          margin: 5,
+          margin: moderateScale(5),
           position: "absolute",
-          height: 50,
-          // backgroundColor: '#FF9800',
-          // alignItems: 'flex-end',
-          // justifyContent: 'space-between',
-          bottom: 20, 
-          right: width/2.5
+          height: moderateScale(50),
+          bottom: moderateScale(70), 
+          right: moderateScale(width/3)
         }}>
           <TouchableOpacity onPress={this.takePicture.bind(this)}>
-          <Icon name="circledowno" size={45} />
+            <Image  source={require('../../../assets/images/Ellipse.png')} />
           </TouchableOpacity>
         </View>
       </View>
@@ -96,18 +93,18 @@ const styles = StyleSheet.create({
   capture: {
     flex: 0,
     backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
+    borderRadius: moderateScale(5),
+    padding: moderateScale(15),
+    paddingHorizontal: moderateScale(20),
     alignSelf: 'center',
-    margin: 20,
+    margin: moderateScale(20),
   },
   maskOutter: {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    marginTop: 10,
-    paddingRight: 5,
+    marginTop: moderateScale(10),
+    paddingRight: moderateScale(5),
     alignItems: 'flex-end',
     justifyContent: 'space-between',
   }

@@ -14,10 +14,10 @@ import Analysis from '../containers/analysisContainer';
 
 export default Nagivations = createAppContainer(
     createStackNavigator({ 
-        Home: { screen: Home },
-        Cloud: { screen: Cloud },
         Work: { screen:Work},
         Camera: {screen:Camera},
+        Home: { screen: Home },
+        Cloud: { screen: Cloud },
         Analysis: { screen:Analysis},
     })
 );
