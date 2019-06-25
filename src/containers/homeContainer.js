@@ -8,46 +8,22 @@ import {
   Alert,
   StatusBar,
   Dimensions,
-  Animated
+  Animated,
 } from "react-native";
 import TextInput from "../components/common/TextInput";
 import Header from "../components/common/Header";
 import Button from "../components/common/Button";
-
-const PacMan = () => {
-  return (
-    <View
-      style={{
-        width: 200,
-        height: 200,
-        borderTopWidth: 5,
-        borderTopColor: "red",
-        borderLeftColor: "red",
-        borderLeftWidth: 5,
-        borderRightColor: "transparent",
-        borderRightWidth: 5,
-        borderBottomColor: "red",
-        borderBottomWidth: 5,
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
-        borderBottomRightRadius: 5,
-        borderBottomLeftRadius: 5,
-        borderRadius: 100
-      }}
-    />
-  );
-};
-
+import { moderateScale } from "../helpers/ResponsiveFonts";
 class Home extends Component {
   constructor(props) {
     super(props);
     this.howThisWorks = this.howThisWorks.bind(this);
   }
   static navigationOptions = {
-    header: null
+    header: null,
   };
-  howThisWorks(){
-    this.props.navigation.navigate('Work');
+  howThisWorks() {
+    this.props.navigation.navigate("Work");
   }
 
   render() {
@@ -62,7 +38,7 @@ class Home extends Component {
                   fontFamily: "Montserrat-bold",
                   fontSize: 20,
                   textAlign: "justify",
-                  color: "#7B5151"
+                  color: "#7B5151",
                 }}
               >
                 We're So Happy You're Here!
@@ -73,7 +49,7 @@ class Home extends Component {
                   fontSize: 14,
                   textAlign: "justify",
                   paddingVertical: 10,
-                  color: "#7B5151"
+                  color: "#7B5151",
                 }}
               >
                 If you are seeing this screen, Congratulations! You have been
@@ -85,18 +61,34 @@ class Home extends Component {
                   fontFamily: "Montserrat-Regular",
                   fontSize: 14,
                   paddingVertical: 10,
-                  color: "#7B5151"
+                  color: "#7B5151",
                 }}
               >
                 Please enter your access code to proceed with the free demo
                 version of this app.
               </Text>
             </View>
-            <View style={{}}>
-              <TextInput  placeHolderText={"Email"}/>
-              <TextInput placeHolderText={"Phone (Optional)"}/>
-              <TextInput placeHolderText={"Access Code"}/>
-              <Button name={"Continue"}  onPress={this.howThisWorks}/>
+            <View
+              style={{
+                padding: moderateScale(20),
+                justifyContent: "space-between",
+                alignItems: "center",
+                flex: 0.5,
+              }}
+            >
+              <TextInput
+                placeHolderText={"Email"}
+                onChangeText={email => this.setState({ email })}
+              />
+              <TextInput
+                placeHolderText={"Phone (Optional)"}
+                onChangeText={phone => this.setState({ phone })}
+              />
+              <TextInput
+                placeHolderText={"Access Code"}
+                onChangeText={accessCode => this.setState({ accessCode })}
+              />
+              <Button buttonName={"Continue"} onPress={this.howThisWorks} />
             </View>
           </View>
         </View>
@@ -107,7 +99,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
   };
 };
 

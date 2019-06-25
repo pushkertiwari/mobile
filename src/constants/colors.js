@@ -1,8 +1,8 @@
 "use strict";
 
 let colors = {
-  Primary: "#393B3B",
-  Secondary: "rgb(252, 142, 49)",
+  Primary: "#F1BDBD",
+  Secondary: "#7B5151",
   Yellow: "#F6CF65",
   DarkGray: "#393B3B",
   //background: "#ffffff",
@@ -18,7 +18,7 @@ let colors = {
   gray: "#A9AFAF",
   menuItemTxt: "#393B3B",
   fadeBorder: "#e0e0e0",
-  ocen: "rgb(175, 207, 237)"
+  ocen: "rgb(175, 207, 237)",
 };
 
 module.exports = colors;

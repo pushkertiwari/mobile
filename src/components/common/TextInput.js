@@ -6,22 +6,29 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { moderateScale } from "../../helpers/ResponsiveFonts";
 import Constants from "../../constants";
 
-class MyTextInput extends Component {
+class FormTextInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isFocused: false,
       focusColor: Constants.Colors.Primary,
-      borderWidth: 1
+      borderWidth: 1,
     };
   }
 
+  UNSAFE_componentWillReceiveProps(nextProp) {
+    if (nextProp.focusColor !== this.state.focusColor) {
+      this.setState({
+        focusColor: nextProp.focusColor || Constants.Colors.Primary,
+      });
+    }
+  }
   // Function calls the parent class onBlur function
   onBlur() {
     this.setState({
       isFocused: false,
-      focusColor: Constants.Colors.Secondary,
-      borderWidth: 1
+      focusColor: Constants.Colors.gray,
+      borderWidth: 1,
     });
     if (this.props.onBlur) {
       this.props.onBlur();
@@ -31,11 +38,11 @@ class MyTextInput extends Component {
   onFocus() {
     let colour = this.props.focusColor
       ? this.props.focusColor
-      : Constants.Colors.Secondary;
+      : Constants.Colors.Primary;
     this.setState({
       isFocused: true,
       focusColor: colour,
-      borderWidth: 2
+      borderWidth: 2,
     });
     if (this.props.onFocus) this.props.onFocus();
   }
@@ -55,7 +62,7 @@ class MyTextInput extends Component {
       placeHolderText,
       placeHolderColor,
       keyboard,
-      secureText,
+      secureTextEntry,
       returnKey,
       onSubmitEditing,
       isPassword,
@@ -66,21 +73,27 @@ class MyTextInput extends Component {
       value,
       icon,
       maximumLength,
-      onChangeText
+      onChangeText,
     } = this.props;
     return (
       <View
         style={[
           Styles.viewStyle,
           {
-            borderColor: this.state.focusColor,
-            borderWidth: this.state.borderWidth
+            borderColor: this.state.focusColor || Constants.Colors.gray,
+            borderWidth: this.state.borderWidth,
           },
-          this.props.style
+          this.props.style,
         ]}
       >
-        <View style={{flexDirection:"row", alignItems:'center'}}>
-          {icon && <Icon name={icon} size={15} style={{marginHorizontal:moderateScale(10)}} />}
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          {icon && (
+            <Icon
+              name={icon}
+              size={15}
+              style={{ marginHorizontal: moderateScale(10) }}
+            />
+          )}
           <TextInput
             ref={ref => (this.inputBox = ref || "inputbox")}
             autoFocus={autoFocus}
@@ -90,9 +103,9 @@ class MyTextInput extends Component {
             autoCapitalize={"none"}
             value={value}
             placeholder={placeHolderText}
-            placeholderTextColor={placeHolderColor || Constants.Colors.Primary}
+            placeholderTextColor={placeHolderColor || Constants.Colors.gray}
             keyboardType={keyboard}
-            secureTextEntry={secureText || isPassword}
+            secureTextEntry={secureTextEntry || isPassword}
             editable={editable}
             onChangeText={onChangeText}
             onChange={event => this.onChange(event)}
@@ -110,25 +123,24 @@ class MyTextInput extends Component {
   }
 }
 
-export default MyTextInput;
+export default FormTextInput;
 const Styles = StyleSheet.create({
   viewStyle: {
     flexDirection: "row",
-    borderColor: Constants.Colors.placehoder,
-    borderRadius: moderateScale(25),
-    marginHorizontal: moderateScale(25),
-    marginVertical:moderateScale(20),
+    borderColor: Constants.Colors.gray,
+    // marginHorizontal: moderateScale(25),
+    // marginVertical: moderateScale(20),
     alignItems: "center",
-    backgroundColor:Constants.Colors.White,
+    padding: moderateScale(5),
+    backgroundColor: Constants.Colors.White,
+    borderRadius: moderateScale(25),
+    borderWidth: 1.5,
   },
   inputStyle: {
-    color: Constants.Colors.Primary,
     ...Constants.Fonts.Regular,
-    fontSize: moderateScale(16),
-    alignItems: "center",
-    borderLeftWidth: 1,
-    marginVertical: moderateScale(2),
-    paddingHorizontal: moderateScale(5),
-    flex:1
-  }
+    paddingLeft: 10,
+    fontSize: moderateScale(20),
+    height: moderateScale(50),
+    flex: 1,
+  },
 });
