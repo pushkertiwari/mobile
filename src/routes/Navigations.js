@@ -10,14 +10,17 @@ import Cloud from '../containers/cloudContainer';
 import Work from '../containers/workContainer';
 import Camera from '../containers/cameraContainer';
 import Analysis from '../containers/analysisContainer';
+import Product from '../containers/productContainer';
 
 
 export default Nagivations = createAppContainer(
     createStackNavigator({ 
-        Work: { screen:Work},
-        Camera: {screen:Camera},
         Home: { screen: Home },
-        Cloud: { screen: Cloud },
+        Camera: {screen:Camera},
         Analysis: { screen:Analysis},
+        Work: { screen:Work},       
+        Cloud: { screen: Cloud },
+        Product:{ screen: Product},
+       
     })
 );

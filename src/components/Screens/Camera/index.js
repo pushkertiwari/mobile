@@ -25,13 +25,12 @@ export default class Camera extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      // console.log(data.uri);
-      this.props.navigation.navigate('Cloud');
+      this.props.navigation.navigate('Analysis',{
+        image:'data:image/jpg;base64,' + data.base64
+      });
     }
   };
-  componentDidMount() {
-    console.log(height);
-  }
+
   render() {
     return (
       <View style={styles.container}>
