@@ -4,14 +4,15 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Image,
   ActivityIndicator,
   StatusBar,
   Dimensions,
   Animated
 } from "react-native";
+import { moderateScale } from '../../../helpers/ResponsiveFonts'
 
-import Header from "../../../components/common/Header";
-
+// import Header from "../../../components/common/Header";
 
 export default class Work extends Component {
   constructor(props) {
@@ -28,8 +29,16 @@ export default class Work extends Component {
     return (
       <Fragment>
         <View style={{ flex: 1, backgroundColor: "#F1BDBD" }}>
-          <Header title={"MyAvana"} subText={"TM"} />
-          <View style={{flex:0.2}}></View>
+          <View style={styles.maskOutter}>
+          <Image style={{
+            bottom:moderateScale(350),
+            left:moderateScale(60)
+          }} source={require('../../../assets/images/EllipseImage.png')} />
+          </View>
+          <View style={{flex:0.2,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+            <Image style={{resizeMode: "contain",width:'40%',marginLeft:moderateScale(30)}} source={require('../../../assets/images/mainIcon.png')} />
+          </View>
+          <View style={{flex:0.1}}></View>
           <View style={{ flex: 0.6 }}>
             <View style={{ marginLeft: 60, marginRight: 25 }}>
               <Text
@@ -37,6 +46,7 @@ export default class Work extends Component {
                   fontFamily: "Montserrat-bold",
                   fontSize: 21,
                   textAlign: "justify",
+                  fontWeight:'700',
                   color: "#7B5151"
                 }}
               >
@@ -125,5 +135,13 @@ const styles =  StyleSheet.create({
         color: 'white',
         fontSize: 18
       },
-    
+      maskOutter: {
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        marginTop: moderateScale(10),
+        paddingRight: moderateScale(5),
+        alignItems: 'flex-end',
+        justifyContent: 'space-between',
+      }
 })
