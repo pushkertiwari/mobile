@@ -11,6 +11,7 @@ import {
   StatusBar,
   Dimensions,
   Animated,
+  ImageBackground,
 } from "react-native";
 // import TextInput from "../components/common/TextInput";
 // import Header from "../components/common/Header";
@@ -89,6 +90,11 @@ class Home extends Component {
                 onChangeText={accessCode => this.setState({ accessCode })}
               />
               <Button buttonName={"Continue"} onPress={this.howThisWorks} /> */}
+              {/* <Button
+                buttonName={"Continue"}
+                buttonStyle={{ borderRadius: moderateScale(20) }}
+                onPress={this.howThisWorks}
+              /> */}
             </View>
           </View>
       </Fragment>
