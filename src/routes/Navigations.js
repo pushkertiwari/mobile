@@ -21,6 +21,5 @@ export default Nagivations = createAppContainer(
         Work: { screen:Work},       
         Cloud: { screen: Cloud },
         Product:{ screen: Product},
-       
     })
 );
