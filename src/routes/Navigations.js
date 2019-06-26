@@ -14,9 +14,9 @@ import Product from "../containers/productContainer";
 
 export default (Nagivations = createAppContainer(
   createStackNavigator({
+    Home: { screen: Home },
     Product: { screen: Product },
     Analysis: { screen: Analysis },
-    Home: { screen: Home },
     Work: { screen: Work },
     Camera: { screen: Camera },
     Cloud: { screen: Cloud },
