@@ -13,9 +13,14 @@ YellowBox.ignoreWarnings(["Warning: ReactNative.createElement"]);
 console.disableYellowBox = true;
 import store from "../store";
 import Nagivations from "./routes/Navigations";
+import SplashScreen from "react-native-splash-screen";
 console.reportErrorsAsExceptions = false;
 
 export default class App extends Component {
+  componentDidMount() {
+    // do anything while splash screen keeps, use await to wait for an async task.
+    SplashScreen.hide(); //关闭启动屏幕
+  }
   render() {
     return (
       <React.Fragment>
