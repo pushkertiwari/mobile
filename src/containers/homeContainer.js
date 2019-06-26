@@ -9,6 +9,7 @@ import {
   StatusBar,
   Dimensions,
   Animated,
+  ImageBackground,
 } from "react-native";
 import TextInput from "../components/common/TextInput";
 import Header from "../components/common/Header";
@@ -31,8 +32,36 @@ class Home extends Component {
       <Fragment>
         <View style={{ flex: 1, backgroundColor: "#F1BDBD" }}>
           <Header title={"My"} secondTitle={"AVANA"} subText={"TM"} />
-          <View style={{ flex: 1 }}>
-            <View style={{ marginLeft: 60, marginRight: 25 }}>
+          <View
+            style={{
+              position: "absolute",
+              zIndex: 99,
+              top: 0,
+              width: "119%",
+              height: "72%",
+              left: 0,
+            }}
+          >
+            <ImageBackground
+              source={require("../assets/images/EllipseImage.png")}
+              style={{ width: "100%", height: "75%" }}
+            />
+          </View>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "space-between",
+              bottom: moderateScale(60),
+            }}
+          >
+            <View style={{ flex: 0.02 }} />
+            <View
+              style={{
+                marginLeft: 60,
+                marginRight: 25,
+                flex: 0.2,
+              }}
+            >
               <Text
                 style={{
                   fontFamily: "Montserrat-bold",
@@ -88,7 +117,11 @@ class Home extends Component {
                 placeHolderText={"Access Code"}
                 onChangeText={accessCode => this.setState({ accessCode })}
               />
-              <Button buttonName={"Continue"} onPress={this.howThisWorks} />
+              <Button
+                buttonName={"Continue"}
+                buttonStyle={{ borderRadius: moderateScale(20) }}
+                onPress={this.howThisWorks}
+              />
             </View>
           </View>
         </View>
