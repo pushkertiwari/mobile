@@ -16,14 +16,14 @@ const SafeArea = props => (
       barStyle="light-content"
       hidden={props.hidden}
     />
-    <KeyboardAwareScrollView
+    {/* <KeyboardAwareScrollView
       contentContainerStyle={{ flex: 1 }}
       enableOnAndroid
       enableAutomaticScroll
       keyboardShouldPersistTap="handled"
-    >
-      {props.children}
-    </KeyboardAwareScrollView>
+    >*/}
+      {props.children} 
+    {/* </KeyboardAwareScrollView> */}
   </SafeAreaView>
 );
 
